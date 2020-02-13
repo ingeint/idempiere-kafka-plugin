@@ -6,11 +6,11 @@
 
 ## Description
 
-Put the plugin description here
+This plugin is an example of using kafka customer/producer client with iDempiere.
 
 ## Contributors
 
-- Put the contributor list here, format: Year Name <name@email.com>.
+- [Saúl Piña](https://github.com/sauljabin)
 
 ## Components
 
@@ -23,6 +23,7 @@ Put the plugin description here
 - Java 11, commands `java` and `javac`.
 - iDempiere 7.1.0
 - Set `IDEMPIERE_REPOSITORY` env variable
+- GNU make
 
 ## Features/Documentation
 
@@ -30,11 +31,34 @@ Put the plugin description here
 
 ## Instructions
 
-- Put the instructions list to install here
+Clone project :
+```
+git clone https://github.com/ingeint/idempiere-kafka-plugin.git
+```
+
+Updating submodule:
+```
+cd idempiere-kafka-plugin
+git submodule init
+git submodule update
+```
+
+Building kafka docker:
+```
+cd kafka-docker
+make build
+```
+
+Runing kafka:
+```
+docker swarm init
+make run
+```
 
 ## Extra Links
 
-- Put the documentation/links here
+- [Kafka](https://kafka.apache.org/)
+- [Kafka Docker](https://hub.docker.com/r/sauljabin/kafka)
 
 ## Commands
 
