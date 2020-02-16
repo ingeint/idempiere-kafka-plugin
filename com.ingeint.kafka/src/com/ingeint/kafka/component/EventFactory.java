@@ -18,7 +18,10 @@
 
 package com.ingeint.kafka.component;
 
+import org.compiere.model.MBPartner;
+
 import com.ingeint.kafka.base.CustomEventFactory;
+import com.ingeint.kafka.event.NewPartnerEvent;
 
 /**
  * Event Factory
@@ -36,6 +39,8 @@ public class EventFactory extends CustomEventFactory {
 	 */
 	@Override
 	protected void initialize() {
+		registerEvent(PO_AFTER_NEW, MBPartner.Table_Name, NewPartnerEvent.class);
+		registerEvent(PO_AFTER_CHANGE, MBPartner.Table_Name, NewPartnerEvent.class);
 	}
 
 }

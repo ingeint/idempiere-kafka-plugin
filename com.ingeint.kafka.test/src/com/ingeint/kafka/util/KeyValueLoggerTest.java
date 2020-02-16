@@ -351,6 +351,13 @@ class KeyValueLoggerTest {
 
 		verify(logger).log(Level.INFO, "action=\"" + randomValue + "\"");
 	}
+	
+	@Test
+	void shouldPrintLoggingLevel() {
+		keyValueLogger.level(Level.INFO).info();
+
+		verify(logger).log(Level.INFO, "level=\"INFO\"");
+	}
 
 	@Test
 	void shouldPrintFailStatus() {

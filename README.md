@@ -6,7 +6,7 @@
 
 ## Description
 
-This plugin is an example of using kafka customer/producer client with iDempiere.
+This plugin is an example of using kafka comsumer/producer client with iDempiere.
 
 ## Contributors
 
@@ -27,7 +27,17 @@ This plugin is an example of using kafka customer/producer client with iDempiere
 
 ## Features/Documentation
 
-- Put the plugin feature list here
+#### This example does not include
+- Idempotent producer
+- Security
+- Key, Partitions, Replicas, Cluster management
+
+#### Partner Producer
+This plugin send a BParnet to the kafka topic `partner` every time a new parnet is created or updated. Se the class `PartnerKafkaProducer` and `NewPartnerEvent`.
+
+![](doc/idempiere1.png)
+
+![](doc/kafka1.png)
 
 ## Instructions
 
@@ -59,6 +69,8 @@ make run
 
 - [Kafka](https://kafka.apache.org/)
 - [Kafka Docker](https://hub.docker.com/r/sauljabin/kafka)
+- GUI [Kafka Tool](http://www.kafkatool.com/)
+- GUI [Conduktor](https://www.conduktor.io/)
 
 ## Commands
 

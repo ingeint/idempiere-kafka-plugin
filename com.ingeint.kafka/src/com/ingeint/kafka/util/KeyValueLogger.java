@@ -572,7 +572,7 @@ public class KeyValueLogger {
 	public KeyValueLogger code(String code) {
 		return add(KeyValueLoggerKeys.CODE, code);
 	}
-	
+
 	/**
 	 * Adds a new log using the key "action".
 	 * <p>
@@ -715,6 +715,24 @@ public class KeyValueLogger {
 	 */
 	public KeyValueLogger session(String session) {
 		return add(KeyValueLoggerKeys.SESSION, session);
+	}
+
+	/**
+	 * Adds a new log using the key "level".
+	 * <p>
+	 * Example:
+	 * <p>
+	 * {@code keyValueLogger.level("value").info();}
+	 * <p>
+	 * Example output:
+	 * <p>
+	 * {@code 08:07:26 [main] INFO App level="value"}
+	 *
+	 * @param level Value to log
+	 * @return Builder
+	 */
+	public KeyValueLogger level(Level level) {
+		return add(KeyValueLoggerKeys.LEVEL, level);
 	}
 
 	/**
@@ -1340,7 +1358,7 @@ public class KeyValueLogger {
 	private enum KeyValueLoggerKeys {
 		PACKAGE("package"), CLASS("class"), ENDPOINT("endpoint"), SERVICE("service"), EXCEPTION("exception"), HTTP_STATUS("httpStatus"), HTTP_METHOD("httpMethod"), TRANSACTION("transaction"), VALUE("value"), TYPE("type"), SESSION("session"),
 		TRACK("track"), REQUEST("request"), CODE("code"), METHOD("method"), ENVIRONMENT("environment"), STATUS("status"), MESSAGE("message"), NAME("name"), DURATION("duration"), LANGUAGE("language"), ARGUMENTS("arguments"), ID("id"), FAIL("fail"),
-		SUCCESS("success"), DAY("day"), MONTH("month"), DATE("date"), YEAR("year"), TIME("time"), DATE_TIME("dateTime"), TIME_ZONE("timeZone"), ACTION("action");
+		SUCCESS("success"), DAY("day"), MONTH("month"), DATE("date"), YEAR("year"), TIME("time"), DATE_TIME("dateTime"), TIME_ZONE("timeZone"), ACTION("action"), LEVEL("level");
 
 		private final String toStringKey;
 

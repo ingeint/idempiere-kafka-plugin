@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/kafka-clients.jar"/>
+	<classpathentry kind="lib" path="lib/gson.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -8,5 +10,8 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="lib" path="lib/freemarker.jar"/>
+	<classpathentry kind="lib" path="lib/lz4-java.jar"/>
+	<classpathentry kind="lib" path="lib/snappy-java.jar"/>
+	<classpathentry kind="lib" path="lib/zstd-jni.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
