@@ -20,6 +20,7 @@ public class NewPartnerEvent extends CustomEvent {
 		Partner partner = new Partner();
 		partner.setUu(mbPartner.getC_BPartner_UU());
 		partner.setName(mbPartner.getName());
+		partner.setValue(mbPartner.getValue());
 		return partner;
 	}
 

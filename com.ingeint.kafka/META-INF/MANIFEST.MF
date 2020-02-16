@@ -19,7 +19,9 @@ Require-Bundle: org.apache.commons.lang3,
  zul,
  zweb,
  slf4j.api;bundle-version="1.7.25"
-Import-Package: org.osgi.service.event
+Import-Package: org.osgi.framework,
+ org.osgi.service.event,
+ org.osgi.util.tracker
 Service-Component: OSGI-INF/ModelFactory.xml,
  OSGI-INF/EventFactory.xml,
  OSGI-INF/CalloutFactory.xml,
@@ -32,4 +34,4 @@ Bundle-ClassPath: .,
  lib/zstd-jni.jar,
  lib/kafka-clients.jar,
  lib/gson.jar
-Bundle-Activator: org.adempiere.plugin.utils.Incremental2PackActivator
+Bundle-Activator: com.ingeint.kafka.activator.PluginKafkaActivator

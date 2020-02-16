@@ -33,13 +33,24 @@ This plugin is an example of using kafka comsumer/producer client with iDempiere
 - Key, Partitions, Replicas, Cluster management
 
 #### Partner Producer
-This plugin send a BPartne to the kafka topic `partner` every time a new partne is created or updated. Se the class `PartnerKafkaProducer` and `NewPartnerEvent`.
+This plugin sends a BPartner to the kafka topic `partnerFromInternalProducer` every time a new partne is created or updated. See the class `PartnerKafkaProducer` and `NewPartnerEvent`.
 
 Some captures from iDempiere and Kafkatool:
 
 ![](doc/idempiere1.png)
 
 ![](doc/kafka1.png)
+
+#### Partner Consumer
+
+This plugin consumes a BPartner to the kafka topic `partnerFromExternalProducer` every time a new partne is created or updated. See the class `PartnerKafkaConsumer` and `PluginKafkaActivator`.
+
+Also we add a java application in [random-partner-producer](random-partner-producer).
+
+```
+cd random-partner-producer
+./gradlew run
+```
 
 ## Instructions
 
@@ -71,6 +82,7 @@ make run
 
 - [Kafka](https://kafka.apache.org/)
 - [Kafka Docker](https://hub.docker.com/r/sauljabin/kafka)
+- CLI [Kafkacat](https://github.com/edenhill/kafkacat)
 - GUI [Kafka Tool](http://www.kafkatool.com/)
 - GUI [Conduktor](https://www.conduktor.io/)
 

@@ -1,4 +1,4 @@
-package com.ingeint.kafka.producer;
+package producer;
 
 import java.util.Properties;
 import java.util.logging.Level;
@@ -7,15 +7,15 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
-
-import com.ingeint.kafka.presenter.Partner;
-import com.ingeint.kafka.util.KeyValueLogger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import presenter.Partner;
 
 public class PartnerKafkaProducer {
-	private static final String KAFKA_PARTNER_TOPIC = "partnerFromInternalProducer";
+	private static final String KAFKA_PARTNER_TOPIC = "partnerFromExternalProducer";
 	private static final String KAFKA_BOOTSTRAP = "127.0.0.1:9093";
 
-	private static final KeyValueLogger keyValueLogger = KeyValueLogger.instance(PartnerKafkaProducer.class);
+	private static final Logger logger = LoggerFactory.getLogger(PartnerKafkaProducer.class.getName());
 
 	public void send(Partner partner) {
 		Properties properties = new Properties();
@@ -25,11 +25,10 @@ public class PartnerKafkaProducer {
 		ProducerRecord<String, Partner> record = new ProducerRecord<>(KAFKA_PARTNER_TOPIC, partner);
 		producer.send(record, (metadata, exception) -> {
 
-			KeyValueLogger logger = keyValueLogger.add("partition", metadata.partition()).add("offset", metadata.offset()).add("topic", metadata.topic()).add("partner", record.value());
 			if (exception == null) {
-				logger.level(Level.INFO).info();
+				logger.info(record.toString());
 			} else {
-				logger.level(Level.SEVERE).exceptionWithStackTrace(exception).severe();
+				logger.error(record.toString(), exception);
 			}
 
 		});
