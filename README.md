@@ -33,7 +33,9 @@ This plugin is an example of using kafka comsumer/producer client with iDempiere
 - Key, Partitions, Replicas, Cluster management
 
 #### Partner Producer
-This plugin send a BParnet to the kafka topic `partner` every time a new parnet is created or updated. Se the class `PartnerKafkaProducer` and `NewPartnerEvent`.
+This plugin send a BPartne to the kafka topic `partner` every time a new partne is created or updated. Se the class `PartnerKafkaProducer` and `NewPartnerEvent`.
+
+Some captures from iDempiere and Kafkatool:
 
 ![](doc/idempiere1.png)
 
